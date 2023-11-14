@@ -195,6 +195,15 @@ target_link_libraries(pose_node
 )
 set_property(TARGET pose_node PROPERTY COMPILE_DEFINITIONS POSE)
 
+## DUAL POSE + POSITION
+add_executable(dualpose_position_node src/mars_node.cpp src/mars_wrapper_dualpose_position.cpp
+        src/mars_wrapper_dualpose_position.cpp)
+add_dependencies(dualpose_position_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} mars_lib)
+target_link_libraries(dualpose_position_node
+        ${catkin_LIBRARIES} ${MARS_LIBRARY}
+)
+set_property(TARGET dualpose_position_node PROPERTY COMPILE_DEFINITIONS DPOSE_POSITION)
+
 ## POSITION
 add_executable(position_node src/mars_node.cpp src/mars_wrapper_position.cpp)
 add_dependencies(position_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} mars_lib)

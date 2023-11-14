@@ -13,6 +13,9 @@
 #ifdef POSE
 #include "mars_wrapper_pose.h"
 #endif
+#ifdef DPOSE_POSITION
+#include "mars_wrapper_dualpose_position.h"
+#endif
 #ifdef POSITION
 #include "mars_wrapper_position.h"
 #endif
@@ -44,6 +47,9 @@ int main(int argc, char* argv[])
 
 #ifdef POSE
   MarsWrapperPose mars_core(nh);
+#endif
+#ifdef DPOSE_POSITION
+  MarsWrapperDPosePosition mars_core(nh);
 #endif
 #ifdef POSITION
   MarsWrapperPosition mars_core(nh);
